@@ -12,7 +12,12 @@ Robot::Robot(sf::Vector2i position, int direction)
 
 void Robot::dessiner(sf::RenderWindow *window)
 {
-    //window->draw(m_sprite);
+    if (m_position.y %2 == 1)
+        m_sprite.setPosition(m_position.x*RAYON_CASES*1.75+RAYON_CASES-4,m_position.y*RAYON_CASES*1.5);
+    else
+        m_sprite.setPosition(m_position.x*RAYON_CASES*1.75,m_position.y*RAYON_CASES*1.5);
+
+    window->draw(m_sprite);
 }
 
 void Robot::tourner(bool clockwise)

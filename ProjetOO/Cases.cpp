@@ -27,8 +27,11 @@ Case::Case(Etat etat, sf::Vector2i position)
         m_hexagone.setFillColor(sf::Color::Red);
         break;
     case Vide:
-        break;
         m_hexagone.setFillColor(sf::Color::Transparent);
+        break;
+    case Normale:
+        m_hexagone.setFillColor(sf::Color::Blue);
+        break;
     default:
         break;
 
@@ -58,7 +61,9 @@ Etat Case::get_etat() const
 void Case::set_etat(Etat e)
 {
     m_etat = e;
-    if (m_etat == Etat::Allumee)
+    if (m_etat == Etat::Vide)
+        m_hexagone.setFillColor(sf::Color::Blue);
+    else if (m_etat == Etat::Allumee)
         m_hexagone.setFillColor(sf::Color::Green);
     else if(m_etat == Etat::Eteinte)
         m_hexagone.setFillColor(sf::Color::Red);

@@ -5,7 +5,7 @@
 
 #include "Etats_Cases.h"
 
-const float RAYON_HEXAGONE = 30;
+const float RAYON_HEXAGONE = 30.0;
 
 class Case
 {

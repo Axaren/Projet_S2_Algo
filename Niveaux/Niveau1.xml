@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Level>
+	<Grille>
+		<Robot>
+			<Position>2;2</Position>
+			<Direction>3</Direction>
+		</Robot>
+		<Case>
+			<Position>2;2</Position>
+			<Etat>Normale</Etat>
+		</Case>
+		<Case>
+			<Position>3;2</Position>
+			<Etat>Normale</Etat>
+		</Case>
+		<Case>
+			<Position>4;2</Position>
+			<Etat>Eteinte</Etat>
+		</Case>
+	</Grille>
+	<Procs>
+		<Main>
+			<Taille>5;2</Taille>
+		</Main>
+		<P1>
+			<Taille>5;1</Taille>
+		</P1>
+		<P2>
+			<Taille>3;2</Taille>
+		</P2>
+	</Procs>
+</Level>

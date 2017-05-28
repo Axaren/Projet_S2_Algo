@@ -61,6 +61,8 @@ private:
 
     EtatSouris etat;
 
+    Level * lvltest;
+
         // les fonctions à fournir
      void mouse_button_pressed() override ;
      void mouse_button_released() override ;

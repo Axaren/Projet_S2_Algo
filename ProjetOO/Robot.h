@@ -11,6 +11,8 @@ const sf::IntRect RECTANGLE_DIRECTION_3 = {/* A modifier */};
 const sf::IntRect RECTANGLE_DIRECTION_4 = {/* A modifier */};
 const sf::IntRect RECTANGLE_DIRECTION_5 = {/* A modifier */};
 
+const float RAYON_CASES = 30.0;
+
 class Robot
 {
 private :

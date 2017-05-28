@@ -50,20 +50,22 @@ void Hexabot::ChargerNiveaux()
 
 void Hexabot::init()
 {
-    sf::Texture image_background;
-    if (image_background.loadFromFile("Sprites/galaxy.png"))
-    {
-        background.setTexture(image_background);
-    }
-    else
-        std::cerr << "Chemin image non valide !" << std::endl;
-    //    if (!image.loadFromFile("Sprites/Button.png"))
-    //    {
-    //       std::cerr << "Chemin invalide vers bouttons" << std::endl;
-    //       EXIT_SUCCESS;
-    //    }
+//    sf::Texture image_background;
+//    if (image_background.loadFromFile("Sprites/galaxy.png"))
+//    {
+//        background.setTexture(image_background);
+//    }
+//    else
+//        std::cerr << "Chemin image non valide !" << std::endl;
+//        if (!image.loadFromFile("Sprites/Button.png"))
+//        {
+//           std::cerr << "Chemin invalide vers bouttons" << std::endl;
+//           EXIT_SUCCESS;
+//        }
+    lvltest = new Level();
+    lvltest->LoadLevel("Niveau1.xml");
 
-    ChargerNiveaux();
+
     jeu=MENU;
 }
 
@@ -75,6 +77,7 @@ void Hexabot::loop()
     m_window->clear(); // On clear l'image
     if (jeu == JEU)
     {
+        lvltest->Dessiner(m_window);
         dessiner_bouton(); // On dessine les boutons
         if (etat==AJOUT) // Si état ajout on dessine l'action séléctionner
         {

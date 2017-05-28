@@ -22,7 +22,10 @@ public:
     void dessiner(sf::RenderWindow *window);
     void SauvegarderGrille(std::string nomFic);
     void TraiterAction(Actions * next_action);
-     ~Grille();
+    void set_robot(Robot* r);
+    void set_robot(sf::Vector2i position, int direction);
+    ~Grille();
+    void set_case(sf::Vector2i position, Etat e);
 };
 
 

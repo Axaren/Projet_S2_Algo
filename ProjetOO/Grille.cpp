@@ -2,8 +2,8 @@
 
 Grille::~Grille()
 {
-    for (auto n : m_cases)
-        delete n;
+    for (auto c : m_cases)
+        delete c;
 }
 
 Grille::Grille()
@@ -22,7 +22,6 @@ Grille::Grille()
 
 void Grille::dessiner (sf::RenderWindow *window) // Pour chaque case du tableau on dessine une case
 {
-
 
     for (Case * c : m_cases)
     {
@@ -52,6 +51,23 @@ Case* Grille::get_case(sf::Vector2i position)
         return nullptr;
 }
 
+void Grille::set_case(sf::Vector2i position, Etat e)
+{
+    bool found = false;
+    unsigned int i = 0;
+    while (!found && i < m_cases.size() - 1 )
+    {
+        if (m_cases.at(i)->get_position() == position)
+        {
+            found = true;
+        }
+        else
+            i++;
+    }
+    if (found)
+    m_cases.at(i)->set_etat(e);
+}
+
 void Grille::TraiterAction(Actions *next_action)
 {
             sf::Vector2i position_initiale = m_robot->get_position();
@@ -77,4 +93,14 @@ void Grille::TraiterAction(Actions *next_action)
             get_case(m_robot->get_position())->set_etat(Allumee);
         break;
     }
+}
+
+void Grille::set_robot(Robot *r)
+{
+    m_robot = r;
+}
+
+void Grille::set_robot(sf::Vector2i position, int direction)
+{
+    m_robot = new Robot(position,direction);
 }
