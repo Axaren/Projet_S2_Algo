@@ -25,6 +25,12 @@ Proc::Proc(sf::Vector2f position,int TAILLE_L,int TAILLE_C)
         m_actions.push_back(nullptr);
 }
 
+Proc::~Proc()
+{
+    for (int i=0; i<m_TAILLE_C*m_TAILLE_L+1;i++)
+        delete m_actions.at(i);
+}
+
 
 void Proc::dessiner(sf::RenderWindow *window )
 {

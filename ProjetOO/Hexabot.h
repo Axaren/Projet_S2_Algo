@@ -60,7 +60,6 @@ private:
     Proc * m_proc,* m_proc1, *m_proc2;
     sf::Event event;
 
-    sf::RenderWindow * window;
     Grille * m_grille;
     sf::Vector2i appuie;
 

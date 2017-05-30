@@ -23,25 +23,37 @@ Hexabot::Hexabot()
 
 Hexabot::~Hexabot()
 {
-    // personnaliser ici
+    delete barre;
+    delete m_proc;
+    delete m_proc1;
+    delete m_proc2;
+    delete m_proc_temp;
+    delete play;
+    delete arret;
+    delete vider;
+    delete play_menu;
+    delete quitter_menu;
+    delete quitter;
+    delete  m_grille;
+            delete m_window;
 }
 
 void Hexabot::init()
 {
-    //    sf::Texture image_background;
-    //    if (image_background.loadFromFile("Sprites/background.png"))
-    //    {
-    //    background.setTexture(image_background);
-    //    }
-    //    else
-    //        std::cerr << "Chemin image non valide !" << std::endl;
+    sf::Texture image_background;
+    if (image_background.loadFromFile("Sprites/galaxy.png"))
+    {
+        background.setTexture(image_background);
+    }
+    else
+        std::cerr << "Chemin image non valide !" << std::endl;
     //    if (!image.loadFromFile("Sprites/Button.png"))
     //    {
     //       std::cerr << "Chemin invalide vers bouttons" << std::endl;
     //       EXIT_SUCCESS;
     //    }
     m_image.chargerImage();
-     jeu=MENU;
+    jeu=MENU;
 }
 
 
@@ -65,7 +77,7 @@ void Hexabot::loop()
         dessiner_bouton_menu();
 
     }
-m_window->display();
+    m_window->display();
 
 }
 

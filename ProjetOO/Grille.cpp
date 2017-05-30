@@ -1,5 +1,11 @@
 #include "Grille.h"
 
+Grille::~Grille()
+{
+    for (auto n : m_cases)
+        delete n;
+}
+
 Grille::Grille()
     :
       m_robot{nullptr}
@@ -28,7 +34,7 @@ void Grille::dessiner (sf::RenderWindow *window) // Pour chaque case du tableau 
 Case* Grille::get_case(sf::Vector2i position)
 {
     bool found = false;
-    int i = 0;
+    unsigned int i = 0;
     while (!found && i < m_cases.size() - 1 )
     {
         if (m_cases.at(i)->get_position() == position)

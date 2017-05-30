@@ -16,12 +16,14 @@ class Grille
 private:
     std::vector<Case*> m_cases;
     Robot * m_robot;
+
 public:
     Grille();
     Case* get_case(sf::Vector2i position);
     void dessiner(sf::RenderWindow *window);
     void SauvegarderGrille(std::string nomFic);
     void TraiterAction(Actions * next_action);
+     ~Grille();
 };
 
 

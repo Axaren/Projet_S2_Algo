@@ -15,13 +15,13 @@ public:
     void afficher(sf::RenderWindow *window) ;
     void position_sprite(int i, int j, sf::Vector2f pos_init);
     void position_Ajout(sf::Vector2f position)  ;
-
+    ~Actions();
     TypeAction get_etat();
 
 private:
     TypeAction m_etat;
     sf::Texture image;
-    sf::Sprite* m_sprite;
+    sf::Sprite m_sprite;
 
 
 

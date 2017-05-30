@@ -14,6 +14,7 @@ public:
     sf::Vector2f position_barre();
     sf::Vector2f Taille_barre();
     Actions &typeaction(int i);
+    ~BarreAction();
 private :
     std::vector<Actions *> m_actions;
     sf::RectangleShape m_rect;

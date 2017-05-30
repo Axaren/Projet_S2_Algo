@@ -12,6 +12,7 @@ public:
     void dessiner_bouton(sf::RenderWindow *window);
     sf::Vector2f position();
     sf::Vector2f taille();
+
 private :
     sf::RectangleShape bouton;
     sf::Vector2f m_position;

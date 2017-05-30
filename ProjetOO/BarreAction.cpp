@@ -68,3 +68,9 @@ Actions & BarreAction::typeaction (int i)
     return * m_actions.at(i);
 
 }
+
+BarreAction::~BarreAction()
+{
+ for (auto n : m_actions)
+     delete n;
+}

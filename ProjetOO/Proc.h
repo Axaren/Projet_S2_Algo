@@ -18,6 +18,7 @@ class Proc
 public:
 
     Proc(sf::Vector2f position, int TAILLE_L, int TAILLE_C);
+    ~Proc();
     void dessiner(sf::RenderWindow *window);
     Position position2(int i, int j);
     sf::Vector2f Taille_proc();
