@@ -14,11 +14,10 @@ SOURCES += main.cpp \
     Proc.cpp \
     Cases.cpp \
     Menu.cpp \
-    Outils.cpp \
     Hexabot.cpp \
     BarreAction.cpp \
     TinyXML2/tinyxml2.cpp \
-    Image.cpp
+    Level.cpp
 
 
 include(deployment.pri)
@@ -43,5 +42,5 @@ HEADERS += \
     TypeAction.h \
     BarreAction.h \
     TinyXML2/tinyxml2.h \
-    Image.h
+    Level.h
 

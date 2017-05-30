@@ -5,7 +5,6 @@
 #include <array>
 #include "Robot.h"
 #include <fstream>
-#include "Etats_Cases.h"
 #include "Actions.h"
 
 static const int COLONNES = 10;

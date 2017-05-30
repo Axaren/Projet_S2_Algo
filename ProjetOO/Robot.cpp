@@ -12,7 +12,7 @@ Robot::Robot(sf::Vector2i position, int direction)
 
 void Robot::dessiner(sf::RenderWindow *window)
 {
-    window->draw(m_sprite);
+    //window->draw(m_sprite);
 }
 
 void Robot::tourner(bool clockwise)
@@ -23,7 +23,7 @@ void Robot::tourner(bool clockwise)
         m_direction--;
 }
 
-void Robot::avancer()
+sf::Vector2i Robot::avancer()
 {
     if (m_position.x %2 == 1)
     {
@@ -76,12 +76,18 @@ void Robot::avancer()
             m_position.y++;
             break;
         }
+        return m_position;
     }
 }
 
-sf::Vector2i Robot::get_position()
+sf::Vector2i Robot::get_position() const
 {
     return m_position;
+}
+
+void Robot::set_position(sf::Vector2i position)
+{
+    m_position = position;
 }
 
 void Robot::loadSprite()
@@ -121,7 +127,6 @@ void Robot::loadSpritesheet()
     if (!spritesheet.loadFromFile(CHEMIN_FEUILLE_DE_SPRITES_ROBOT))
     {
         std::cerr << "Erreur lors du chargement de la feuille de sprites" << std::endl;
-        EXIT_FAILURE;
     }
     else
         feuille_chargee = true;

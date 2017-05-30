@@ -26,9 +26,11 @@ private :
 public:
     Robot(sf::Vector2i position, int direction);
     void dessiner(sf::RenderWindow *window);
-    void avancer();
+    sf::Vector2i avancer();
     void tourner(bool clockwise);
-    sf::Vector2i get_position();
+
+    sf::Vector2i get_position() const;
+    void set_position(sf::Vector2i position);
 };
 
 #endif // ROBOT_H

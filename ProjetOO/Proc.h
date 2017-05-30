@@ -16,7 +16,7 @@ static const int COLONNES_P = 5;
 class Proc
 {
 public:
-
+    Proc();
     Proc(sf::Vector2f position, int TAILLE_L, int TAILLE_C);
     ~Proc();
     void dessiner(sf::RenderWindow *window);
@@ -30,6 +30,8 @@ public:
 
     Actions *action_de_la_case(sf::Vector2i pos);
     void placer_action_echange(sf::Vector2i pos, Actions *action);
+
+    std::vector<Actions*> get_actions() const;
 private:
 
     sf::RectangleShape m_rect, m_rect2;

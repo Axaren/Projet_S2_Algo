@@ -10,7 +10,6 @@ Actions::Actions(TypeAction action)
     if (!image.loadFromFile("Sprites/Button.png"))
     {
         std::cerr << "Chemin vers Sprite d'actions invalide !" << std::endl;
-        EXIT_FAILURE;
     }
     else
     {

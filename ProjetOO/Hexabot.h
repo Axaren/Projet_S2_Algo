@@ -4,18 +4,15 @@
 #include <array>
 #include <iostream>
 #include "vector"
-#include "Robot.h"
-#include "Cases.h"
-#include "Grille.h"
-#include "Proc.h"
 #include "Application.h"
 #include "BarreAction.h"
-#include "Image.h"
 #include "BoutonSimple.h"
+#include "Level.h"
 
 enum TypeJeu {MENU, JEU, QUITTER, VICTOIRE};
 enum EtatSouris {DEPLACEMENT, INITIAL, FINAL, AJOUT};
 
+const int NOMBRE_NIVEAUX = 2;
 
 class Hexabot : public Application
 {
@@ -25,9 +22,8 @@ public:
     Hexabot();          // à personnaliser éventuellement
     ~Hexabot();
     void init() override;
-
+    void ChargerNiveaux();
     void loop() override;
-    void DessinerProc();
     bool souris_dans_Proc(Proc * proc) const;
     bool souris_dans_BarreAction(BarreAction *barre) const;
     Actions  num_action(const Position &p);
@@ -38,6 +34,8 @@ public:
     void dessiner_bouton_menu();
 private:
 
+    std::vector<Level*> m_niveaux;
+
     BoutonSimple * play,*arret,*vider, *play_menu,* quitter , *quitter_menu;
     // les fonctions et variables utilisables
     void stop();
@@ -46,30 +44,22 @@ private:
     int COLONNE_PROC1 = 5;
     int button;
     Proc * m_proc_temp;
-    Image m_image;
 
-    Actions* type_memoire,* type_memoire2;
+    Actions* type_memoire;
+
     sf::Sprite background;
-
-    //sf::Texture image;
 
     TypeJeu jeu; // Etat du jeu
 
-    float m_x , m_y;
-
-    Proc * m_proc,* m_proc1, *m_proc2;
     sf::Event event;
 
-    Grille * m_grille;
-    sf::Vector2i appuie;
+    sf::Vector2i m_appui,m_relache;
 
     BarreAction * barre;
 
     Position m_position;
+
     EtatSouris etat;
-
-    sf::RectangleShape m_rectangle;
-
 
         // les fonctions à fournir
      void mouse_button_pressed() override ;

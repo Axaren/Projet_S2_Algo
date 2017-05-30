@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Bouton.h"
 #include "TypeAction.h"
-#include "Image.h"
+
 class Hexabot;
 const std::string CHEMIN_ACTIONS = "Sprites/fleches.png";
 

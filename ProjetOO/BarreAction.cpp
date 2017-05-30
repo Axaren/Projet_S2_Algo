@@ -39,12 +39,7 @@ void BarreAction::dessinerBarre(sf::RenderWindow * window)
 
 int BarreAction::NombreActions()
 {
-    int i =0;
-    for (auto n : m_actions)
-    {
-        i++;
-    }
-    return i;
+    return m_actions.size();
 }
 
 sf::Vector2f BarreAction::position(int i)

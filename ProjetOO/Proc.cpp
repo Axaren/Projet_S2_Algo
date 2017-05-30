@@ -25,6 +25,12 @@ Proc::Proc(sf::Vector2f position,int TAILLE_L,int TAILLE_C)
         m_actions.push_back(nullptr);
 }
 
+Proc::Proc()
+{
+    for (int i=0; i<m_TAILLE_C*m_TAILLE_L+1;i++)
+        m_actions.push_back(nullptr);
+}
+
 Proc::~Proc()
 {
     for (int i=0; i<m_TAILLE_C*m_TAILLE_L+1;i++)
@@ -139,4 +145,9 @@ Actions * Proc::action_de_la_case(sf::Vector2i pos)
 void Proc::placer_action_echange(sf::Vector2i pos, Actions * action)
 {
     m_actions.at(pos.y*m_TAILLE_C+pos.x)=action;
+}
+
+std::vector<Actions*> Proc::get_actions() const
+{
+    return m_actions;
 }

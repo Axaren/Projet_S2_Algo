@@ -29,6 +29,8 @@ void Grille::dessiner (sf::RenderWindow *window) // Pour chaque case du tableau 
         c->draw_on(window);
     }
 
+    m_robot->dessiner(window);
+
 }
 
 Case* Grille::get_case(sf::Vector2i position)
@@ -44,15 +46,23 @@ Case* Grille::get_case(sf::Vector2i position)
         else
             i++;
     }
+    if (found)
     return m_cases.at(i);
+    else
+        return nullptr;
 }
 
 void Grille::TraiterAction(Actions *next_action)
 {
+            sf::Vector2i position_initiale = m_robot->get_position();
     switch (next_action->get_etat())
     {
     case Avancer:
         m_robot->avancer();
+
+        if (get_case(m_robot->get_position())->get_etat() == Etat::Vide || get_case(m_robot->get_position()))
+            m_robot->set_position(position_initiale);
+
         break;
     case Tourner_Droite:
         m_robot->tourner(true);
@@ -61,6 +71,10 @@ void Grille::TraiterAction(Actions *next_action)
         m_robot->tourner(false);
         break;
     case Allumer:
+        if (get_case(m_robot->get_position())->get_etat() == Allumee)
+            get_case(m_robot->get_position())->set_etat(Eteinte);
+        else
+            get_case(m_robot->get_position())->set_etat(Allumee);
         break;
     }
 }
