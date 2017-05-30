@@ -3,13 +3,12 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Bouton.h"
-#include "Programme.h"
 #include "TypeAction.h"
 #include "Image.h"
 class Hexabot;
 const std::string CHEMIN_ACTIONS = "Sprites/fleches.png";
 
-class Actions : public Programme
+class Actions
 {
 public:
     Actions(TypeAction action);

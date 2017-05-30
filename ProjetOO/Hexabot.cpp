@@ -12,12 +12,12 @@ Hexabot::Hexabot()
     m_proc1 = new Proc({LARGEUR-40*7,HAUTEUR-40*7.9},2,5);
     m_proc2 = new Proc({LARGEUR-40*7,HAUTEUR-40*5},2,5);
     barre = new BarreAction({LARGEUR-50*12,HAUTEUR-50});
-    play = new BoutonSimple({40,HAUTEUR-50},PLAY);
-    arret = new BoutonSimple({100,HAUTEUR-50},ARRET);
-    vider = new BoutonSimple({160,HAUTEUR-50},VIDER);
-    play_menu  = new BoutonSimple({LARGEUR/2,HAUTEUR/2},PLAY_MENU);
-    quitter_menu = new BoutonSimple({LARGEUR/2,HAUTEUR/3},QUITTER_MENU);
-    quitter = new BoutonSimple({700,HAUTEUR-50},QUITTER_JEU);
+    play = new BoutonSimple({(LARGEUR/2)-200,HAUTEUR-110},PLAY);
+    arret = new BoutonSimple({(LARGEUR/2)-60,HAUTEUR-113},ARRET);
+    vider = new BoutonSimple({550,HAUTEUR-50},VIDER);
+    play_menu  = new BoutonSimple({LARGEUR/2-60,HAUTEUR/2-40},PLAY_MENU);
+    quitter_menu = new BoutonSimple({LARGEUR/2-60,HAUTEUR/2+40},QUITTER_MENU);
+    quitter = new BoutonSimple({60,HAUTEUR-50},QUITTER_JEU);
 
 }
 
@@ -138,7 +138,7 @@ void Hexabot::mouse_button_pressed()
             m_proc_temp = m_proc2;
             std::cout << "proc2" << appuie.x << ";" << appuie.y << std::endl;
         }
-        else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && souris_dans_Proc(m_proc))
+        else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && souris_dans_Proc(m_proc) && etat != AJOUT)
         {
             appuie = position_grille_case(m_mouse,m_proc);
             m_proc->supprimer_action(appuie);
@@ -147,13 +147,13 @@ void Hexabot::mouse_button_pressed()
         else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && souris_dans_Proc(m_proc1))
         {
             appuie = position_grille_case(m_mouse,m_proc1);
-            m_proc->supprimer_action(appuie);
+            m_proc1->supprimer_action(appuie);
             std::cout << appuie.x << " "<<appuie.y << std::endl;
         }
         else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && souris_dans_Proc(m_proc2))
         {
             appuie = position_grille_case(m_mouse,m_proc2);
-            m_proc->supprimer_action(appuie);
+            m_proc2->supprimer_action(appuie);
             std::cout << appuie.x << " "<<appuie.y << std::endl;
         }
 
@@ -175,6 +175,10 @@ void Hexabot::mouse_button_pressed()
         {
             std::cout << "play" << std::endl;
         }
+        else if (souris_dans_bouton(quitter))
+        {
+            jeu=MENU;
+        }
         else
         {
             etat=INITIAL;
@@ -187,6 +191,10 @@ void Hexabot::mouse_button_pressed()
         {
             std::cout << "coucou" << std::endl;
             jeu=JEU;
+        }
+        else if (souris_dans_bouton(quitter_menu))
+        {
+            m_window->close();
         }
     }
 

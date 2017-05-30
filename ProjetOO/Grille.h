@@ -9,7 +9,7 @@
 #include "Actions.h"
 
 static const int COLONNES = 10;
-static const int LIGNES = 9;
+static const int LIGNES = 8;
 
 class Grille
 {

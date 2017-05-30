@@ -20,22 +20,32 @@ BoutonSimple::BoutonSimple(sf::Vector2f position, TypeBouton type)
 
         switch (type) {
         case PLAY:
-            bouton.setFillColor(sf::Color::Green);
-
+            bouton.setFillColor(sf::Color::Transparent);
+            bouton.setSize({125,45});
+            sprite->setTexture(image);
+            sprite->setTextureRect(sf::IntRect(646,102,125,45));
             break;
         case ARRET:
-            bouton.setFillColor(sf::Color::Blue);
-
+            bouton.setFillColor(sf::Color::Transparent);
+            bouton.setSize({125,45});
+            sprite->setTexture(image);
+            sprite->setTextureRect(sf::IntRect(260,1,125,45));
             break;
         case VIDER:
-            bouton.setFillColor(sf::Color::Red);
+            bouton.setFillColor(sf::Color::Transparent);
+            bouton.setSize({125,45});
+            sprite->setTexture(image);
+            sprite->setTextureRect(sf::IntRect(647,1,125,45));
             break;
         case QUITTER_JEU:
-            bouton.setFillColor(sf::Color::Yellow);
+            bouton.setFillColor(sf::Color::Transparent);
+            bouton.setSize({125,45});
+            sprite->setTexture(image);
+            sprite->setTextureRect(sf::IntRect(1,1,125,45));
             break;
         case PLAY_MENU:
-            bouton.setFillColor(sf::Color::Cyan);
-            bouton.setSize({70,40});
+            bouton.setFillColor(sf::Color::Transparent);
+            bouton.setSize({125,45});
             sprite->setTexture(image);
             sprite->setTextureRect(sf::IntRect(775,50,125,45));
             break;
@@ -43,7 +53,7 @@ BoutonSimple::BoutonSimple(sf::Vector2f position, TypeBouton type)
             bouton.setFillColor(sf::Color::Transparent);
             bouton.setSize({125,45});
             sprite->setTexture(image);
-            sprite->setTextureRect(sf::IntRect(775,50,125,45));
+            sprite->setTextureRect(sf::IntRect(130,3,125,45));
         default:
             break;
         }
